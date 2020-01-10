@@ -5,17 +5,4 @@
   </li>
 </ul>
 
-
-<div *ngIf="selectedHero; else noSelectedHero">
-  <h1>{{selectedHero.name | uppercase}} detail</h1>
-  <div><span>Id: {{selectedHero.id}}</span></div>
-  <div>
-    <label>Name:
-      <input [(ngModel)]="selectedHero.name" />
-    </label>
-  </div>
-</div>
-
-<ng-template #noSelectedHero>
-  <h1>Nessun eroe selezionato</h1>
-<ng-template>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
