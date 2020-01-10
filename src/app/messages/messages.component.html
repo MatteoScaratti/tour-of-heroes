@@ -1,0 +1,8 @@
+<h1>Messaggi di log</h1>
+<button (click)="deleteMessages()">X</button>
+<div *ngIf="messages.length; else noMessageCase">
+  <p *ngFor="let message of messages">{{message}}</p>
+</div>
+<ng-template #noMessageCase>
+  <p style="color: red;">Non ci sono messaggi</p>
+</ng-template>
