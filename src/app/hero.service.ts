@@ -15,4 +15,9 @@ constructor(private _messageService: MessageService) { }
     this._messageService.postMessage("Hai richiesto la lista degli eroi");
     return of(HEROES);
   }
+
+  getHero(id: number): Observable<Hero>{
+    this._messageService.postMessage("Hai cliccato su un dettaglio");
+    return of(HEROES.find(hero => hero.id === id));
+  }
 }
