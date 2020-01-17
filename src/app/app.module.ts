@@ -10,6 +10,11 @@ import { HeroService } from './hero.service';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { InMemoryWebApiService } from './in-memory-web-api.service';
+
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'
+
 @NgModule({
    declarations: [
       AppComponent,
@@ -19,9 +24,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
       DashboardComponent
    ],
    imports: [
+      HttpClientModule,
       BrowserModule,
       AppRoutingModule,
-      FormsModule
+      FormsModule,
+
+      HttpClientInMemoryWebApiModule.forRoot(
+         InMemoryWebApiService, {dataEncapsulation: false}
+      )
    ],
    providers: [
       HeroService
